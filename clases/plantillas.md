@@ -38,6 +38,19 @@ int main() {
   return 0;
 }
 ```
+formas de definir templates
+```CPP
+template <class T>
+template <typename T=int>
+template <using>
+template <int n>
+template <numeric T>
+
+```
 Definiciones adicionales
 typedef: es un sobrenombre a un tipo de dato
 typename: le dice al compilador que es un tipo de dato generico
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

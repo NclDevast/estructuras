@@ -14,7 +14,7 @@ int main (void){
         
         Fraccion(){
             Numerador=NULL;
-            Denominador=NULL;
+            Denominador=1;
         }
 
         //sobrecarga de metodos: Significa hacer un mismo metodo con difentes parametros
