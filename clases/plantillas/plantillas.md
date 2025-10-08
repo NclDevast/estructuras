@@ -50,7 +50,4 @@ template <numeric T>
 Definiciones adicionales
 typedef: es un sobrenombre a un tipo de dato
 typename: le dice al compilador que es un tipo de dato generico
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
