@@ -14,7 +14,7 @@ int main() {
     return 0;
 }
 ```
-#*Clases template*
+##*Clases template*
 Utiliza el mismo principio de la funcion, pero se le aplica a clases3
 ```cpp
 template <typename T>
