@@ -10,4 +10,4 @@ int main(void){
     std::cin>>*ptrnum;
     std::cout<<"El puntero con direccion: " <<ptrnum<<std::endl<<"Al desreferenciarlo da: "<<*ptrnum;
     delete ptrnum;
-}
+} 
