@@ -56,16 +56,17 @@ Matriz Matriz::operator*(const Matriz& otra)const{
     Matriz MatrizResultado = Matriz(Filas, otra.Columnas);
     for(int i = 0; i<MatrizResultado.Filas;i++){
 
-        for(int i = 0; i < Filas; i++){
-            for(int j = 0; j < otra.Columnas; j++){
-                suma = 0;
-                for(int k = 0; k < Columnas; k++){
-                    suma += (*(*(MatrizGenerada + i) + k)) * (*(*(otra.MatrizGenerada + k) + j));
+        for(int i = 0; i < MatrizResultado.Filas; i++) {
+            for(int j = 0; j < MatrizResultado.Columnas; j++) {
+                float resultadoTemp = 0;
+                
+                for(int k = 0; k < Columnas; k++) {
+                    resultadoTemp += (*(*(MatrizGenerada + i) + k)) * (*(*(otra.MatrizGenerada + k) + j));
                 }
-                *(*(MatrizResultado.MatrizGenerada + i) + j) = suma;
+                
+                *(*(MatrizResultado.MatrizGenerada + i) + j) = resultadoTemp;
             }
         }
-    }
-    
     return MatrizResultado;
-}
+    }
+}    
