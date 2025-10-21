@@ -2,7 +2,7 @@
 #define VISTA_H
 
 #include <iostream>
-#include "../Modelo/modelo.h"
+#include "../modelo/matriz.h"
 
 class Vista {
 private:
@@ -13,8 +13,8 @@ public:
     ~Vista() = default;
     
     int menu();
-    Fraccion ingresarFraccion();
-    void mostrarResultado(const Fraccion& resultado, char operador);
+    Matriz ingresarMatriz(const std::string& nombreMatriz);
+    void mostrarMatriz(const Matriz& matriz, const std::string& titulo);
     void mostrarMensaje(const std::string& mensaje);
 };
 

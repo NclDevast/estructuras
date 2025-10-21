@@ -21,7 +21,10 @@ Matriz::Matriz(int filas, int columnas): Filas(filas), Columnas(columnas){
 }
 
 Matriz::~Matriz(){
-    delete MatrizGenerada;
+    for(int i = 0; i < Filas; i++) {
+        delete[] MatrizGenerada[i];
+    }
+    delete[] MatrizGenerada;
 }
 
 int Matriz::getFilas(){
@@ -41,6 +44,27 @@ void Matriz::setColumnas(int columnas){
 }
 
 void Matriz::editarMatriz(int sizeFilas, int sizeColumnas){
+    // Liberar memoria anterior
+    if (MatrizGenerada != nullptr) {
+        for(int i = 0; i < Filas; i++) {
+            delete[] MatrizGenerada[i];
+        }
+        delete[] MatrizGenerada;
+    }
+    
+    // Actualizar dimensiones
+    Filas = sizeFilas;
+    Columnas = sizeColumnas;
+    
+    // Crear nueva matriz
+    MatrizGenerada = new float*[Filas];
+    for(int i = 0; i < Filas; i++) {
+        MatrizGenerada[i] = new float[Columnas];
+        // Inicializar con ceros
+        for(int j = 0; j < Columnas; j++) {
+            MatrizGenerada[i][j] = 0.0f;
+        }
+    }
 }
 
 void Matriz::ingresarDatos(int indexFila, int indexColumna, float valor){
