@@ -1,5 +1,5 @@
-#ifndef modelo_h
-#define modelo_h
+#ifndef fraccion_hpp
+#define fraccion_hpp
 
 
 class Fraccion{
@@ -28,8 +28,5 @@ class Fraccion{
     float calcularDenominador(const Fraccion& otra)const;
 
 };
-
-template<typename T>
-size_t getSize(T dato);
 
 #endif

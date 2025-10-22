@@ -1,4 +1,4 @@
-#include "../../../interfaces/Fraccion/Fraccion.hpp"
+#include "Fraccion.hpp"
 #include <stdio.h>
 #include <iostream>
 
@@ -42,7 +42,7 @@ void Fraccion::setDenominador(float denominador){
 }
 
 float Fraccion::calcularDenominador(const Fraccion& otra)const{
-    return *Denominador * (*otra.Denominador);
+    return *Denominador * (otra.getDenominador());
 }
 
 Fraccion Fraccion::operator+(const Fraccion& otra)const{
@@ -51,8 +51,8 @@ Fraccion Fraccion::operator+(const Fraccion& otra)const{
     float resultadoFr2;
     float nuevoNumerador; 
     
-    resultadoFr1= (*Numerador)*(*otra.Denominador);
-    resultadoFr2= (*otra.Numerador)*(*Denominador);
+    resultadoFr1= (*Numerador)*(otra.getDenominador());
+    resultadoFr2= (otra.getNumerador())*(*Denominador);
     nuevoNumerador = resultadoFr1 + resultadoFr2;
     return Fraccion(nuevoNumerador, calcularDenominador(otra));
 
@@ -74,8 +74,8 @@ Fraccion Fraccion::operator*(const Fraccion& otra)const{
     float nuevoNum;
     float nuevoDen;
 
-    nuevoNum=(*Numerador)*(*otra.Numerador);
-    nuevoDen=(*Denominador)*(*otra.Denominador);
+    nuevoNum=(*Numerador)*(otra.getNumerador());
+    nuevoDen=(*Denominador)*(otra.getNumerador());
 
     return Fraccion(nuevoNum,nuevoDen);
 }
@@ -84,8 +84,8 @@ Fraccion Fraccion::operator/(const Fraccion& otra)const{
     float nuevoNum;
     float nuevoDen;
 
-    nuevoNum=(*Numerador)*(*otra.Denominador);
-    nuevoDen=(*Denominador)*(*otra.Numerador);
+    nuevoNum=(*Numerador)*(otra.getDenominador());
+    nuevoDen=(*Denominador)*(otra.getNumerador());
 
     return Fraccion(nuevoNum,nuevoDen);
 }
