@@ -3,9 +3,9 @@
 #include <cstdlib>
 
 template<typename T>
-void asignarMatriz(T** Matriz, int filas, int columnas);
+void asignarMatriz(T** &Matriz, int filas, int columnas);
 template<typename T>
-void asignarMatriz(T*** Matriz, int filas, int columnas, int z);
+void asignarMatriz(T*** &Matriz, int filas, int columnas, int z);
 template<typename T>
 void encerar(T** Matriz, int filas, int columnas);
 template<typename T>
@@ -29,9 +29,9 @@ void imprimirMatriz(T** Matriz, int filas, int columnas);
 template<typename T>
 void imprimirMatriz(T*** Matriz, int filas, int columnas, int z);
 template<typename T>
-void liberarMatriz(T** Matriz, int filas, int columnas);
+void liberarMatriz(T** Matriz, int filas);
 template<typename T>
-void liberarMatriz(T*** Matriz, int filas, int columnas, int z);
+void liberarMatriz(T*** Matriz, int filas, int columnas);
 
 
 #endif
