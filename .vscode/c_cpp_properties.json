@@ -3,10 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**",
-                "interfaces/Matrices/",
-                "interfaces/Fraccion"
-
+                "${workspaceFolder}/**"
             ],
             "defines": [],
             "compilerPath": "C:\\msys64\\ucrt64\\bin\\g++.exe",
