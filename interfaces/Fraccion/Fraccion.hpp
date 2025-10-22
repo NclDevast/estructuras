@@ -26,6 +26,7 @@ class Fraccion{
     Fraccion operator*(const Fraccion& otra)const;
     Fraccion operator/(const Fraccion& otra)const;
     float calcularDenominador(const Fraccion& otra)const;
+    void imprimirFraccion();
 
 };
 
