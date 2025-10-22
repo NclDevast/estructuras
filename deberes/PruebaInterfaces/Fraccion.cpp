@@ -1,4 +1,4 @@
-/*#include "../../deberes/PruebaInterfaces/Fraccion.hpp"
+#include "Fraccion.hpp"
 #include <iostream>
 
 // Constructores y destructor
@@ -98,4 +98,4 @@ void Fraccion::imprimirFraccion() {
 template<typename T>
 size_t getSize(T dato) {
     return sizeof(dato);
-}*/
+}

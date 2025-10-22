@@ -1,4 +1,4 @@
-/*#include "../../deberes/PruebaInterfaces/Matriz.hpp"
+#include "Matriz.hpp"
 #include <iostream>
 #include <stdexcept>
 
@@ -160,7 +160,7 @@ void liberarMatriz(T** Matriz, int filas) {
     delete[] Matriz;
 }
 
-template<typename T>
+/*template<typename T>
 void liberarMatriz(T*** Matriz, int filas, int columnas) {
     for(int i = 0; i < filas; i++) {
         for(int j = 0; j < columnas; j++) {
@@ -169,5 +169,4 @@ void liberarMatriz(T*** Matriz, int filas, int columnas) {
         delete[] Matriz[i];
     }
     delete[] Matriz;
-}
-    */
+}*/

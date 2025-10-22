@@ -1,7 +1,7 @@
 #ifndef CONTROLADOR_H
 #define CONTROLADOR_H
 
-#include "../modelo/matriz.h"
+#include "../matriz.h"
 #include "../vista/vista.h"
 
 class Controlador {

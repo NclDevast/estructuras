@@ -28,7 +28,7 @@ class Matriz{
     //metodos
     void editarMatriz(int sizeFilas, int sizeColumna);
     void ingresarDatos(int indexFila, int indexColumna, float valor);
-    Matriz operator*(const Matriz& const)const;
+    Matriz operator*(const Matriz& otra)const;
 
 };
 

@@ -2,7 +2,7 @@
 #define VISTA_H
 
 #include <iostream>
-#include "../modelo/matriz.h"
+#include "matriz.h"
 
 class Vista {
 private:

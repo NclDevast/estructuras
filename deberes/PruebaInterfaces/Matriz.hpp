@@ -1,4 +1,4 @@
-/*#ifndef Matriz_hpp
+#ifndef Matriz_hpp
 #define Matriz_hpp
 #include <cstdlib>
 
@@ -30,9 +30,8 @@ template<typename T>
 void imprimirMatriz(T*** Matriz, int filas, int columnas, int z);
 template<typename T>
 void liberarMatriz(T** Matriz, int filas);
-template<typename T>
-void liberarMatriz(T*** Matriz, int filas, int columnas);
+/*template<typename T>
+void liberarMatriz(T*** Matriz, int filas, int columnas);*/
 
 
 #endif
-*/

@@ -1,4 +1,4 @@
-/*#ifndef fraccion_hpp
+#ifndef fraccion_hpp
 #define fraccion_hpp
 
 class Fraccion {
@@ -27,4 +27,4 @@ public:
     void imprimirFraccion();
 };
 
-#endif*/
+#endif
