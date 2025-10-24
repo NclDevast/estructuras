@@ -1,4 +1,4 @@
-#include "controlador.h"
+#include "../../PruebaInterfaces/controlador.h"
 
 void Controlador::iniciar() {
     int opcion;

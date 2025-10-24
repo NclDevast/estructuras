@@ -1,4 +1,4 @@
-/*#include "../../deberes/PruebaInterfaces/Fraccion.hpp"
+/*#include "../../deberes/PruebaInterfaces/modelo/Fraccion.hpp"
 #include <iostream>
 
 // Constructores y destructor

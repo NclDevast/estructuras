@@ -91,7 +91,7 @@ Fraccion Fraccion::operator/(const Fraccion& otra) const {
 
 // Método para imprimir
 void Fraccion::imprimirFraccion() {
-    std::cout << Numerador << "/" << Denominador << std::endl;
+    std::cout << Numerador << "/" << Denominador;
 }
 
 // Función template (si se necesita mantener)

@@ -1,4 +1,4 @@
-#include "controlador.h"
+#include "../PruebaInterfaces/controlador.h"
 
 int main() {
     Controlador controlador;

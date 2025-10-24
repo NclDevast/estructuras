@@ -1,4 +1,4 @@
-#include "../../PruebaInterfaces/Fraccion.hpp"
+#include "../../PruebaInterfaces/modelo/Fraccion.hpp"
 #include <stdio.h>
 #include <iostream>
 

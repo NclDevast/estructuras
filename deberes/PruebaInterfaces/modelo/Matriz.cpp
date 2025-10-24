@@ -133,7 +133,7 @@ template<typename T>
 void imprimirMatriz(T** Matriz, int filas, int columnas) {
     for(int i = 0; i < filas; i++) {
         for(int j = 0; j < columnas; j++) {
-            std::cout << Matriz[i][j] << " ";
+            std::cout<<*(*(Matriz+i)+j)<<" ";
         }
         std::cout << std::endl;
     }

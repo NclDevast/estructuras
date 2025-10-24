@@ -1,4 +1,4 @@
-#include "controlador.h"
+#include "../../PruebaInterfaces/controlador.h"
 
 Controlador::Controlador() : matrizA(nullptr), matrizB(nullptr) {}
 

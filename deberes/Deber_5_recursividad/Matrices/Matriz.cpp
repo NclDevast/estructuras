@@ -1,6 +1,11 @@
-/*#include "../../deberes/PruebaInterfaces/modelo/Matriz.hpp"
+#include "../../PruebaInterfaces/modelo/Matriz.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <cstring>
+#include <string>
+#include <limits>
+
+
 
 class DimensionesInvalidasExcepcion : public std::runtime_error {
 public:
@@ -170,4 +175,32 @@ void liberarMatriz(T*** Matriz, int filas, int columnas) {
     }
     delete[] Matriz;
 }
-    */
+template<>
+void asignarMatriz<char>(char** &Matriz, int filas, int columnas) {
+    Matriz = new char*[filas];
+    for(int i = 0; i < filas; i++) {
+        Matriz[i] = new char[columnas + 1];  // +1 para el null
+        Matriz[i][0] = '\0';  // Inicializar como cadena vacía
+    }
+}
+
+void ingresarStringsEnMatriz(char** matriz, int filas, int columnas) {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
+    for(int i = 0; i < filas; i++) {
+        std::cout << "Ingrese string para fila " << i << " (max " 
+                  << (columnas - 1) << " chars): ";
+        
+        std::string input;
+        std::getline(std::cin, input);
+        
+        // Truncar si es muy largo
+        if(input.length() >= columnas) {
+            std::cout << "¡Advertencia: String truncado a " 
+                      << (columnas - 1) << " caracteres!\n";
+        }
+        
+        strncpy(matriz[i], input.c_str(), columnas - 1);
+        matriz[i][columnas - 1] = '\0';
+    }
+}
