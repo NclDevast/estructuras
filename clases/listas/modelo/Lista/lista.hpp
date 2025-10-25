@@ -8,6 +8,7 @@ class ListaEnlazada{
     ~ListaEnlazada();
     void addListHead(int);
     void addListTail(int);
-    void remList();
+    void removeHead();
+    void removeTail();
     void printList();
 };

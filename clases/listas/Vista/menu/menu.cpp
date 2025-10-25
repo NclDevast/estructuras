@@ -99,7 +99,7 @@ void Menu::insertarCola(){
 
 void Menu::eliminarCabeza(){
     std::cout << "Eliminar Cola" << std::endl;
-    lista.remList();
+    lista.removeHead();
 }
 
 void Menu::buscarElemento(){

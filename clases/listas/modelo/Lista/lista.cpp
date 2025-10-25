@@ -1,5 +1,6 @@
 #include "lista.hpp"
 #include <iostream>
+#include <functional>
 
 ListaEnlazada::ListaEnlazada(){head=nullptr;}
 void ListaEnlazada::addListTail(int d){
@@ -20,7 +21,7 @@ void ListaEnlazada::addListHead(int d){
     head=NewHead;
 }
 
-void ListaEnlazada::remList(){
+void ListaEnlazada::removeHead(){
     if(head == nullptr){
         std::cout << "La lista esta vacia. No hay elementos para eliminar." << std::endl;
         return;
@@ -29,6 +30,33 @@ void ListaEnlazada::remList(){
     head = head->getSiguiente();
     std::cout << "Elemento " << temp->getDato() << " eliminado de la cabeza." << std::endl;
     delete temp;
+}
+
+void ListaEnlazada::removeTail(){
+    
+
+    if(head==nullptr){
+        std::cout<<"Lista vacia"<<std::endl;
+        return;
+    }
+
+    if(head->getSiguiente()==nullptr){
+        delete head;
+        head=nullptr;
+        return;
+    }
+
+    Nodo* tmp = head;
+    Nodo* tmpAnterior;
+
+    while(tmp->getSiguiente()!=nullptr){
+        tmpAnterior=tmp;
+        tmp=tmp->getSiguiente();
+    }
+
+    tmpAnterior->setSiguiente(nullptr);
+    delete tmp;
+
 }
 
 void ListaEnlazada::printList(){
