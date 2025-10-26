@@ -8,12 +8,15 @@ class ListaEnlazada{
     Nodo* head;
     public:
     ListaEnlazada();
+    ListaEnlazada(Nodo*);
     ~ListaEnlazada();
     void addListHead(int);
     void addListTail(int);
     void removeHead();
     void removeTail();
     void printList();
+    int getIndice(int)const;
+    int getDato(int)const;
 };
 
 #endif

@@ -88,7 +88,7 @@ ListaEnlazada::~ListaEnlazada(){
     }
 }
 
-int ListaEnlazada::getIndice(int dato){
+int ListaEnlazada::getIndice(int dato)const{
     if(head == nullptr){
         std::cout << "Lista vacia" << std::endl;
         return -1;

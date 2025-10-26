@@ -122,11 +122,8 @@ int ListaEnlazada::getDato(int index)const{
     int counter = 0;
     Nodo* temp = head;
     
-    std::cout << "Recorriendo lista..." << std::endl;
     while (temp != nullptr) {
-        std::cout << "Nodo " << counter << ": valor = " << temp->getDato();
         if (counter == index) {
-            std::cout << " <- ENCONTRADO" << std::endl;
             return temp->getDato();
         }
         std::cout << std::endl;
@@ -134,6 +131,20 @@ int ListaEnlazada::getDato(int index)const{
         counter++;
     }
     
-    std::cout << "ERROR: Índice " << index << " fuera de rango. Último índice: " << (counter-1) << std::endl;
     return 0;
+}
+
+int ListaEnlazada::getCapacity()const{
+
+    if(head==nullptr){
+        std::cout<<"Lista Vacia"<<std::endl;
+        return 0;
+    }
+    int cont=0;
+    Nodo* tmp=head;
+    while(tmp!=nullptr){
+        cont++;
+        tmp=tmp->getSiguiente();
+    }
+    return cont;
 }
