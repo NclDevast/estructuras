@@ -11,7 +11,8 @@ int main() {
     SetConsoleOutputCP(CP_UTF8); 
     SetConsoleCP(CP_UTF8);      
     #endif
-    ListaEnlazada lista;
+    ListaEnlazada list;
+    ListaEnlazada* lista=&list;
     Menu menu(lista);
     menu.mostrarMenu();
 

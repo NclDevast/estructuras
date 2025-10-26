@@ -5,12 +5,11 @@
 
 int main(void){
 
-    Nodo* nodo= new Nodo(1);
-    ListaEnlazada lista(nodo);
+    
+    ListaEnlazada lista;
     lista.addListHead(2);
-    lista.addListHead(3);
-    lista.addListHead(4);
+    lista.addListTail(1);
     lista.printList();
-    std::cout<<lista.getDato(3);
+    std::cout<<lista.getDato(2);
     sumaFibonacciHastaIndice(lista,2);  //FUNCIONES LAMBDA MALEVOLAS
 }

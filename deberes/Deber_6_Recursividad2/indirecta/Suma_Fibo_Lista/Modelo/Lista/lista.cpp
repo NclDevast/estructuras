@@ -24,8 +24,11 @@ void ListaEnlazada::addListHead(int d){
     if(head==nullptr){
         head=NewHead;
     }
-    NewHead->setSiguiente(head);
-    head=NewHead;
+    else{
+        NewHead->setSiguiente(head);
+        head=NewHead;
+    }
+
 }
 
 void ListaEnlazada::removeHead(){

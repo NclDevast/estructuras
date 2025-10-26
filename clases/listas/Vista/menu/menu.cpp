@@ -3,9 +3,7 @@
 #include <conio.h>
 #include <cstdlib>
 
-Menu::Menu(ListaEnlazada listanew){
-    lista=listanew;
-}
+Menu::Menu(ListaEnlazada* listanew) : lista(listanew){};
 
 void Menu::mostrarMenu(){
     const char *opciones[]={
@@ -88,7 +86,7 @@ void Menu::insertarCabeza(){
     int valor;
     std::cout << "Ingrese el valor a insertar: ";
     std::cin >> valor;
-    lista.addListHead(valor);
+    lista->addListHead(valor);
     std::cout << "Valor " << valor << " insertado al inicio." << std::endl;
 }
 
@@ -97,13 +95,13 @@ void Menu::insertarCola(){
     int valor;
     std::cout << "Ingrese el valor a insertar: ";
     std::cin >> valor;
-    lista.addListTail(valor);
+    lista->addListTail(valor);
     std::cout << "Valor " << valor << " insertado al final." << std::endl;
 }
 
 void Menu::eliminarCabeza(){
     std::cout << "Eliminar Cola" << std::endl;
-    lista.removeHead();
+    lista->removeHead();
 }
 
 void Menu::buscarElemento(){
@@ -116,7 +114,7 @@ void Menu::buscarElemento(){
 
 void Menu::imprimirLista(){
     std::cout << "Imprimir lista" << std::endl;
-    lista.printList();
+    lista->printList();
 }
 
 int Menu::obtenerEntero(const char* mensaje){

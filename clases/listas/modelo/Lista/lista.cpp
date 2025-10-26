@@ -7,25 +7,25 @@ ListaEnlazada::ListaEnlazada(Nodo* PrimerNodo){
     head=PrimerNodo;
 }
 
-void ListaEnlazada::addListTail(int d){
-    if(head==nullptr){
-        head=new Nodo(d);
+void ListaEnlazada::addListTail(int d) {
+    if (head == nullptr) {
+        head = new Nodo(d);
         return;
     }
+    
     Nodo* tmp = head;
-    while(tmp->getSiguiente()!=nullptr){
+    
+    while (tmp->getSiguiente() != nullptr) {
         tmp = tmp->getSiguiente();
     }
+    
     tmp->setSiguiente(new Nodo(d));
 }
 
 void ListaEnlazada::addListHead(int d){
     Nodo* NewHead = new Nodo(d);
-    if(head==nullptr){
-        head=NewHead;
-    }
-    NewHead->setSiguiente(head);
-    head=NewHead;
+    NewHead->setSiguiente(head);  
+    head = NewHead;               
 }
 
 void ListaEnlazada::removeHead(){
