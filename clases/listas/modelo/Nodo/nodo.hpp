@@ -1,3 +1,5 @@
+#ifndef NODO_HPP
+#define NODO_HPP
 class Nodo{
     private: 
     int dato;
@@ -13,3 +15,5 @@ class Nodo{
     
     
 };
+
+#endif

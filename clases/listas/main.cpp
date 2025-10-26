@@ -1,7 +1,7 @@
 #include <iostream>
-#include "./modelo/Lista/lista.hpp"
-#include "./modelo/Nodo/nodo.hpp" 
-#include "./Vista/menu/menu.h"
+#include "./modelo/Lista/lista.cpp"
+#include "./modelo/Nodo/nodo.cpp" 
+#include "./Vista/menu/menu.cpp"
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -11,8 +11,8 @@ int main() {
     SetConsoleOutputCP(CP_UTF8); 
     SetConsoleCP(CP_UTF8);      
     #endif
-
-    Menu menu;
+    ListaEnlazada lista;
+    Menu menu(lista);
     menu.mostrarMenu();
 
     std::cout << "Presiona ENTER para salir...";

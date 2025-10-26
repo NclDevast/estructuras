@@ -1,7 +1,11 @@
-#include "menu.h"
+#include "menu.hpp"
 #include <iostream>
 #include <conio.h>
 #include <cstdlib>
+
+Menu::Menu(ListaEnlazada listanew){
+    lista=listanew;
+}
 
 void Menu::mostrarMenu(){
     const char *opciones[]={

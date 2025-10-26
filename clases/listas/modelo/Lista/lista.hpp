@@ -1,3 +1,6 @@
+#ifndef LISTA_HPP
+#define LISTA_HPP
+
 #include "../Nodo/nodo.hpp"
 
 class ListaEnlazada{
@@ -12,3 +15,5 @@ class ListaEnlazada{
     void removeTail();
     void printList();
 };
+
+#endif
