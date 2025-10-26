@@ -21,6 +21,9 @@ void ListaEnlazada::addListTail(int d){
 
 void ListaEnlazada::addListHead(int d){
     Nodo* NewHead = new Nodo(d);
+    if(head==nullptr){
+        head=NewHead;
+    }
     NewHead->setSiguiente(head);
     head=NewHead;
 }
@@ -92,24 +95,19 @@ int ListaEnlazada::getIndice(int dato){
     }
 
     Nodo* temp = head;
-    int index = 0;  
+    int index = 0;
 
-    std::function<int(Nodo*, int)> searchDataAndIndex;
-    searchDataAndIndex = [&searchDataAndIndex, dato](Nodo* current, int currentIndex) -> int {
-        if(current == nullptr){
-            std::cout << "Elemento no encontrado en la lista" << std::endl;
-            return -1;
+    while(temp != nullptr){
+        if(dato == temp->getDato()){
+            std::cout << "Item encontrado en indice: " << index << std::endl;
+            return index;
         }
-        
-        if(dato == current->getDato()){
-            std::cout << "Item encontrado en indice: " << currentIndex << std::endl;
-            return currentIndex;
-        }
-        
-        return searchDataAndIndex(current->getSiguiente(), currentIndex + 1);
-    };
+        temp = temp->getSiguiente();
+        index++;
+    }
 
-    return searchDataAndIndex(temp, index);
+    std::cout << "Elemento no encontrado en la lista" << std::endl;
+    return -1;
 }
 
 int ListaEnlazada::sumList(){
@@ -129,17 +127,29 @@ int ListaEnlazada::sumList(){
     return resultado=sumarLista(temp);
 }
 
-int ListaEnlazada::getDato(int index){
-    if(head==nullptr){
-        std::cout<<"Lista vacia"<<std::endl;
+int ListaEnlazada::getDato(int index)const{
+    std::cout << "getDato(" << index << ") llamado" << std::endl;
+    
+    if (head == nullptr) {
+        std::cout << "ERROR: Lista vacía" << std::endl;
         return 0;
     }
-    Nodo* temp=head;
-    for(int i=0;i<index;i++){
-        if(temp->getSiguiente()==nullptr){
-            std::cout<<"Dato no encontrado en la lista"<<std::endl;
-            return 0;
+    
+    int counter = 0;
+    Nodo* temp = head;
+    
+    std::cout << "Recorriendo lista..." << std::endl;
+    while (temp != nullptr) {
+        std::cout << "Nodo " << counter << ": valor = " << temp->getDato();
+        if (counter == index) {
+            std::cout << " <- ENCONTRADO" << std::endl;
+            return temp->getDato();
         }
+        std::cout << std::endl;
+        temp = temp->getSiguiente();
+        counter++;
     }
-    return temp->getDato();
+    
+    std::cout << "ERROR: Índice " << index << " fuera de rango. Último índice: " << (counter-1) << std::endl;
+    return 0;
 }

@@ -16,7 +16,7 @@ class ListaEnlazada{
     void printList();
     int getIndice(int);
     int sumList();
-    int getDato(int);
+    int getDato(int)const;
 };
 
 #endif
