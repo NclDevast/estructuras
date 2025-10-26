@@ -110,6 +110,22 @@ int ListaEnlazada::getIndice(int dato)const{
     return -1;
 }
 
+int ListaEnlazada::sumList(){
+
+    Nodo* temp=head;
+    int resultado=0;
+    std::function<int(Nodo*)> sumarLista;
+    sumarLista= [&sumarLista](Nodo* tempCurrent) -> int{
+
+        if(tempCurrent==nullptr){
+            return 0;
+        }
+        int resultadoTemp=tempCurrent->getDato();
+        
+        return resultadoTemp,+sumarLista(tempCurrent->getSiguiente());
+    };
+    return resultado=sumarLista(temp);
+}
 
 int ListaEnlazada::getDato(int index)const{
     std::cout << "getDato(" << index << ") llamado" << std::endl;

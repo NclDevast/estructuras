@@ -4,7 +4,7 @@
 #include "./modelo/Nodo/nodo.cpp"
 
 
-//sumar todos los elementos de una matriz tridimensional
+//sumar todos los elementos de una Lista
 
 std::function<void(int,int,int)> sumaElementosLista;
 

@@ -1,6 +1,5 @@
 #ifndef LISTA_HPP
 #define LISTA_HPP
-
 #include "../Nodo/nodo.hpp"
 
 class ListaEnlazada{
@@ -17,6 +16,7 @@ class ListaEnlazada{
     void printList();
     int getIndice(int)const;
     int getDato(int)const;
+    int getCapacity()const;
 };
 
 #endif
