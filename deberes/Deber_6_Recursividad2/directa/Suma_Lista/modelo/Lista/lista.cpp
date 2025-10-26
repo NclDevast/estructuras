@@ -3,6 +3,10 @@
 #include <functional>
 
 ListaEnlazada::ListaEnlazada(){head=nullptr;}
+ListaEnlazada::ListaEnlazada(Nodo* PrimerNodo){
+    head=PrimerNodo;
+}
+
 void ListaEnlazada::addListTail(int d){
     if(head==nullptr){
         head=new Nodo(d);
@@ -79,4 +83,48 @@ ListaEnlazada::~ListaEnlazada(){
         head = head->getSiguiente();
         delete temp;
     }
+}
+
+int ListaEnlazada::getIndice(int dato){
+    if(head == nullptr){
+        std::cout << "Lista vacia" << std::endl;
+        return -1;
+    }
+
+    Nodo* temp = head;
+    int index = 0;  
+
+    std::function<int(Nodo*, int)> searchDataAndIndex;
+    searchDataAndIndex = [&searchDataAndIndex, dato](Nodo* current, int currentIndex) -> int {
+        if(current == nullptr){
+            std::cout << "Elemento no encontrado en la lista" << std::endl;
+            return -1;
+        }
+        
+        if(dato == current->getDato()){
+            std::cout << "Item encontrado en indice: " << currentIndex << std::endl;
+            return currentIndex;
+        }
+        
+        return searchDataAndIndex(current->getSiguiente(), currentIndex + 1);
+    };
+
+    return searchDataAndIndex(temp, index);
+}
+
+int ListaEnlazada::sumList(){
+
+    Nodo* temp=head;
+    int resultado=0;
+    std::function<int(Nodo*)> sumarLista;
+    sumarLista= [&sumarLista](Nodo* tempCurrent) -> int{
+
+        if(tempCurrent==nullptr){
+            return 0;
+        }
+        int resultadoTemp=tempCurrent->getDato();
+        
+        return resultadoTemp,+sumarLista(tempCurrent->getSiguiente());
+    };
+    return resultado=sumarLista(temp);
 }

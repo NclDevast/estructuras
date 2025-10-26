@@ -6,8 +6,6 @@ Nodo::Nodo(int d){
     dato=d;
 }
 
-Nodo::~Nodo(){//NO IMPLEMENTAR, LISTA YA BORRA LOS NODOS SECUENCIALMENTE
-}
 
 Nodo* Nodo::getSiguiente(){return siguiente;}
 void Nodo::setSiguiente(Nodo* siguienteNew){siguiente=siguienteNew;}
