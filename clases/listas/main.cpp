@@ -2,6 +2,8 @@
 #include "./modelo/Lista/lista.hpp"
 #include "./modelo/Nodo/nodo.hpp" 
 #include "./Vista/menu/menu.h"
+#ifdef _WIN32
+#include <windows.h>
 #endif
 
 int main() {

@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "../modelo/Lista/lista.hpp"
+#include "../../modelo/Lista/lista.hpp"
 
 class Menu {
 private:
