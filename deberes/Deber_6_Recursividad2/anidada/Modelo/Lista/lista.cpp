@@ -7,25 +7,28 @@ ListaEnlazada::ListaEnlazada(Nodo* PrimerNodo){
     head=PrimerNodo;
 }
 
-void ListaEnlazada::addListTail(int d) {
-    if (head == nullptr) {
-        head = new Nodo(d);
+void ListaEnlazada::addListTail(int d){
+    if(head==nullptr){
+        head=new Nodo(d);
         return;
     }
-    
     Nodo* tmp = head;
-    
-    while (tmp->getSiguiente() != nullptr) {
+    while(tmp->getSiguiente()!=nullptr){
         tmp = tmp->getSiguiente();
     }
-    
     tmp->setSiguiente(new Nodo(d));
 }
 
 void ListaEnlazada::addListHead(int d){
     Nodo* NewHead = new Nodo(d);
-    NewHead->setSiguiente(head);  
-    head = NewHead;               
+    if(head==nullptr){
+        head=NewHead;
+    }
+    else{
+        NewHead->setSiguiente(head);
+        head=NewHead;
+    }
+
 }
 
 void ListaEnlazada::removeHead(){
@@ -110,6 +113,22 @@ int ListaEnlazada::getIndice(int dato)const{
     return -1;
 }
 
+int ListaEnlazada::sumList(){
+
+    Nodo* temp=head;
+    int resultado=0;
+    std::function<int(Nodo*)> sumarLista;
+    sumarLista= [&sumarLista](Nodo* tempCurrent) -> int{
+
+        if(tempCurrent==nullptr){
+            return 0;
+        }
+        int resultadoTemp=tempCurrent->getDato();
+        
+        return resultadoTemp,+sumarLista(tempCurrent->getSiguiente());
+    };
+    return resultado=sumarLista(temp);
+}
 
 int ListaEnlazada::getDato(int index)const{
     std::cout << "getDato(" << index << ") llamado" << std::endl;
@@ -133,7 +152,6 @@ int ListaEnlazada::getDato(int index)const{
         temp = temp->getSiguiente();
         counter++;
     }
-    
     
     std::cout << "ERROR: Índice " << index << " fuera de rango. Último índice: " << (counter-1) << std::endl;
     return 0;
