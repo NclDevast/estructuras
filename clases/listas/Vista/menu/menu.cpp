@@ -11,10 +11,11 @@ void Menu::mostrarMenu(){
         "Insertar elemento por cola",
         "Eliminar elemento por cabeza",
         "Buscar elemento en la lista",
+        "Buscar elemento por indice",
         "Imprimir lista",
         "Salir"
     };
-    int n=6;
+    int n=7;
     int eleccion=0;
     int tecla;
 
@@ -63,9 +64,11 @@ void Menu::mostrarMenu(){
         buscarElemento();
         break;
         case 4:
+        buscarIndice();
+        case 5:
         imprimirLista();
         break;
-        case 5:
+        case 6:
         std::cout<<"Saliendo del programa"<<std::endl;
         return;
 
@@ -109,7 +112,16 @@ void Menu::buscarElemento(){
     int valor;
     std::cout << "Ingrese el valor a buscar: ";
     std::cin >> valor;
-    std::cout << "Funcionalidad de busqueda en desarrollo..." << std::endl;
+    lista->getIndice(valor);
+}
+
+void Menu::buscarIndice(){
+    std::cout << "Buscar indice" << std::endl;
+    int valor;
+    std::cout << "Ingrese el indice a buscar: ";
+    std::cin >> valor;
+    lista->getDato(valor);
+
 }
 
 void Menu::imprimirLista(){

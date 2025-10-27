@@ -14,6 +14,7 @@ public:
     void eliminarCabeza();
     void buscarElemento();
     void imprimirLista();
+    void buscarIndice();
     int obtenerEntero(const char* mensaje);
 };
 
