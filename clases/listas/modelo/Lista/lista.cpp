@@ -3,7 +3,7 @@
 #include <functional>
 
 ListaEnlazada::ListaEnlazada(){head=nullptr;}
-ListaEnlazada::ListaEnlazada(Nodo* PrimerNodo){
+ListaEnlazada::ListaEnlazada(Nodo*& PrimerNodo){
     head=PrimerNodo;
 }
 

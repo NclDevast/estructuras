@@ -8,7 +8,7 @@ class ListaEnlazada{
     Nodo* head;
     public:
     ListaEnlazada();
-    ListaEnlazada(Nodo*);
+    ListaEnlazada(Nodo*&);
     ~ListaEnlazada();
     void addListHead(int);
     void addListTail(int);
