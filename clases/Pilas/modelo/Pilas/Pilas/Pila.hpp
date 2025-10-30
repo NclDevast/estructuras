@@ -10,9 +10,9 @@ class Pila{
     ~Pila();
     void push(int);
     void pop();
-    void pop(int);
+    //void pop(int);
     bool isEmpty()const;
-    void peek()const;
+    int peek()const;
     void display()const;
     void editTop(int);
 };

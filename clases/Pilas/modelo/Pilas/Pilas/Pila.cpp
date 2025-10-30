@@ -1,5 +1,6 @@
 #include "Pila.hpp"
 #include <iostream>
+#include <stdexcept>
 
 Pila::Pila(){
     Top=nullptr;
@@ -40,8 +41,20 @@ void Pila::pop(){
         Top->setAnterior(nullptr);
     }
     delete NodoABorrar;
+    return;
 }
 
-void Pila::pop(int dato){
-    
+bool Pila::isEmpty()const{
+    if(Top==nullptr){
+        return true;
+    }
+    return false;
+}
+
+int Pila::peek()const{
+    if(Top==nullptr){
+        throw std::runtime_error("Error: peek() llamado en una pila vacía.");
+    }
+    return Top->getDato();
+
 }
