@@ -1,3 +1,4 @@
+#include "../Nodo/Nodo.hpp"
 #include "Pila.hpp"
 #include <iostream>
 #include <stdexcept>
@@ -6,11 +7,9 @@ Pila::Pila(){
     Top=nullptr;
 }
 Pila::Pila(int dato){
-
-}
-Pila::Pila(int dato){
     Top=new Nodo(dato);
 }
+
 Pila::~Pila(){
     while(Top!=nullptr){
         Nodo* tmp = Top;
@@ -57,4 +56,25 @@ int Pila::peek()const{
     }
     return Top->getDato();
 
+}
+
+void Pila::display()const{
+    if(Top==nullptr){
+        std::cout<<"Error, pila vacia"<<std::endl;
+        return;
+    }
+    Nodo* tmp = Top;
+    while (tmp!=nullptr){
+        std::cout<<tmp->getDato()<< " ";
+        tmp=tmp->getSiguiente();
+    }
+    std::cout<<std::endl;
+}
+
+void Pila::editTop(int dato){
+    if(Top==nullptr){
+        std::cout<<"Error, pila vacia"<<std::endl;
+        return;
+    }
+    Top->setDato(dato);
 }

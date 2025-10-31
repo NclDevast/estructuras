@@ -11,7 +11,7 @@ class Nodo{
     Nodo(int);
     Nodo(Nodo*,int);
     Nodo(Nodo*,Nodo*,int);
-    ~Nodo();
+    //~Nodo();
     Nodo* getSiguiente()const;
     Nodo* getAnterior()const;
     void setSiguiente(Nodo*);
