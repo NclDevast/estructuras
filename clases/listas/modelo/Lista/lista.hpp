@@ -16,8 +16,9 @@ class ListaEnlazada{
     void removeTail();
     void printList();
     int getIndice(int)const;
-    int getDato(int)const;
-    int getCapacity()const;
+    int buscarIndice(int)const;
+    int getSize()const;
+    int sumLista()const;
 };
 
 #endif

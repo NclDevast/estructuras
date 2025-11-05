@@ -111,7 +111,7 @@ int ListaEnlazada::getIndice(int dato)const{
 }
 
 
-int ListaEnlazada::getDato(int index)const{
+int ListaEnlazada::buscarIndice(int index)const{
     std::cout << "getDato(" << index << ") llamado" << std::endl;
     
     if (head == nullptr) {
@@ -139,7 +139,7 @@ int ListaEnlazada::getDato(int index)const{
     return 0;
 }
 
-int ListaEnlazada::getCapacity()const{
+int ListaEnlazada::getSize()const{
 
     if(head==nullptr){
         std::cout<<"Lista Vacia"<<std::endl;
@@ -152,4 +152,20 @@ int ListaEnlazada::getCapacity()const{
         tmp=tmp->getSiguiente();
     }
     return cont;
+}
+
+int ListaEnlazada::sumLista()const{
+    auto sum = [this]() -> int{
+        int resultado=0;
+
+        if(this->getSize()==0){
+            return 0;
+        }
+
+        for(int i=0;i<this->getSize();i++){
+            resultado+=this->buscarIndice(i);
+        }
+        return resultado;
+    };
+    return sum();
 }
