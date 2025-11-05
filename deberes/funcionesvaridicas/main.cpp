@@ -3,10 +3,7 @@
 #include <string>
 #include <sstream>
 #include <numeric>
-#include <utility> // Para std::apply (C++17) o std::forward (C++11)
-#include <tuple>   // Necesario para std::apply (C++17)
 
-// 1. Multiplicar N Enteros
 long long multiplicar() {
     return 1;
 }
@@ -39,7 +36,48 @@ bool buscar_numero(T target, Args... args) {
     return (false || ... || (args == target));
 }
 
-// Funciones Auxiliares para Input
+// =================================================================
+// SOLUCIÓN C++11/14: WRAPPERS PARA LLAMAR PLANTILLAS CON VECTORES
+// =================================================================
+
+// Generador de secuencias de índices (C++11/14)
+template<int...> struct index_sequence {};
+template<int N, int... Is> struct make_index_sequence : make_index_sequence<N - 1, N - 1, Is...> {};
+template<int... Is> struct make_index_sequence<0, Is...> : index_sequence<Is...> {};
+
+
+// -----------------------------------------------------------------
+// WRAPPERS GENÉRICOS DE LLAMADA
+// -----------------------------------------------------------------
+
+// Wrapper para multiplicar
+template <typename T, int... Is>
+long long call_multiplicar(const std::vector<T>& vec, index_sequence<Is...>) {
+    // El 'Is...' desempaqueta el vector llamando a vec[0], vec[1], etc.
+    return multiplicar(vec[Is]...);
+}
+
+// Wrapper para concatenar_chars
+template <typename T, int... Is>
+std::string call_concatenar_chars(const std::vector<T>& vec, index_sequence<Is...>) {
+    return concatenar_chars(vec[Is]...);
+}
+
+// Wrapper para promedio
+template <typename T, int... Is>
+double call_promedio(const std::vector<T>& vec, index_sequence<Is...>) {
+    return promedio(vec[Is]...);
+}
+
+// Wrapper para buscar_numero
+template <typename T, int... Is>
+bool call_buscar_numero(int target, const std::vector<T>& vec, index_sequence<Is...>) {
+    return buscar_numero(target, vec[Is]...);
+}
+
+
+
+
 template <typename T>
 std::vector<T> leer_elementos(int n, const std::string& tipo_nombre) {
     std::vector<T> elementos;
@@ -57,7 +95,10 @@ std::vector<T> leer_elementos(int n, const std::string& tipo_nombre) {
     return elementos;
 }
 
-// Función main con el driver de demostración
+// =================================================================
+// FUNCIÓN MAIN MODIFICADA (USANDO LOS WRAPPERS)
+// =================================================================
+
 int main() {
     int opcion;
 
@@ -90,9 +131,7 @@ int main() {
                 case 1: { 
                     auto nums = leer_elementos<int>(n, "entero");
                     if (!nums.empty()) {
-                        long long resultado = std::apply([](auto... args) {
-                            return multiplicar(args...);
-                        }, nums); 
+                        long long resultado = call_multiplicar(nums, make_index_sequence<100>{}); // 100 es un límite seguro
                         std::cout << "Resultado de la multiplicación: " << resultado << "\n";
                     }
                     break;
@@ -100,9 +139,7 @@ int main() {
                 case 2: { 
                     auto chars = leer_elementos<char>(n, "carácter"); 
                     if (!chars.empty()) {
-                        std::string resultado = std::apply([](auto... args) {
-                            return concatenar_chars(args...);
-                        }, chars);
+                        std::string resultado = call_concatenar_chars(chars, make_index_sequence<100>{});
                         std::cout << "Resultado de la concatenación: " << resultado << "\n";
                     }
                     break;
@@ -110,9 +147,7 @@ int main() {
                 case 3: { 
                     auto doubles = leer_elementos<double>(n, "double");
                     if (!doubles.empty()) {
-                        double resultado = std::apply([](auto... args) {
-                            return promedio(args...);
-                        }, doubles);
+                        double resultado = call_promedio(doubles, make_index_sequence<100>{});
                         std::cout << "Resultado del promedio: " << resultado << "\n";
                     }
                     break;
@@ -129,9 +164,7 @@ int main() {
                     
                     auto search_nums = leer_elementos<int>(n, "entero de la lista");
                     if (!search_nums.empty()) {
-                        bool encontrado = std::apply([target](auto... args) {
-                            return buscar_numero(target, args...);
-                        }, search_nums);
+                        bool encontrado = call_buscar_numero(target, search_nums, make_index_sequence<100>{});
                         
                         std::cout << "Resultado: El número " << target 
                                   << (encontrado ? " fue encontrado.\n" : " NO fue encontrado.\n");
