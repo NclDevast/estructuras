@@ -8,14 +8,9 @@
 
 int main() {
 
-    ListaEnlazada list;
-    list.addListHead(1);
-    list.addListHead(2);
-    list.addListHead(3);
-    std::cout<<"Resultado suma:"<<list.sumLista();
-    return 0;
+    
 
-    /*#ifdef _WIN32
+    #ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8); 
     SetConsoleCP(CP_UTF8);      
     #endif
@@ -26,5 +21,5 @@ int main() {
 
     std::cout << "Presiona ENTER para salir...";
     std::cin.get();
-    return 0;*/
+    return 0;
 }

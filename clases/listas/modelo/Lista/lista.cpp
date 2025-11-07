@@ -163,7 +163,9 @@ int ListaEnlazada::sumLista()const{
         }
 
         for(int i=0;i<this->getSize();i++){
-            resultado+=this->buscarIndice(i);
+            if(this->buscarIndice(i)%2!=0){
+                resultado+=this->buscarIndice(i);
+            }
         }
         return resultado;
     };

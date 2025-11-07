@@ -120,7 +120,7 @@ void Menu::buscarIndice(){
     int valor;
     std::cout << "Ingrese el indice a buscar: ";
     std::cin >> valor;
-    lista->getDato(valor);
+    lista->buscarIndice(valor);
 
 }
 
