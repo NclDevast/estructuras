@@ -25,10 +25,11 @@ void Menu::mostrarMenu() {
         "1. Insertar datos",
         "2. Buscar dato",
         "3. Ver recorridos",
-        "4. Salir"
+        "4. Ver árbol (visual)",
+        "5. Salir"
     };
     
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 5; i++) {
         if(i == opcionSeleccionada) {
             std::cout << ">> " << opciones[i] << " <<" << std::endl;
         } else {
@@ -179,6 +180,9 @@ void Menu::ejecutarOpcion(int opcion) {
             mostrarRecorridos();
             break;
         case 3:
+            mostrarArbol();
+            break;
+        case 4:
             limpiarPantalla();
             std::cout << "--------------------------------------------" << std::endl;
             std::cout << "|          ¡Hasta luego! Programa finalizado|" << std::endl;
@@ -198,12 +202,67 @@ void Menu::iniciar() {
         if(tecla == 224) { // Tecla especial (flecha)
             tecla = _getch();
             if(tecla == 72) { // Flecha arriba
-                opcionSeleccionada = (opcionSeleccionada - 1 + 4) % 4;
+                opcionSeleccionada = (opcionSeleccionada - 1 + 5) % 5;
             } else if(tecla == 80) { // Flecha abajo
-                opcionSeleccionada = (opcionSeleccionada + 1) % 4;
+                opcionSeleccionada = (opcionSeleccionada + 1) % 5;
             }
         } else if(tecla == 13) { // Enter
             ejecutarOpcion(opcionSeleccionada);
         }
     }
+}
+
+int Menu::calcularAltura(Nodo<int>* nodo) {
+    if(nodo == nullptr) {
+        return 0;
+    }
+    
+    int alturaIzq = calcularAltura(nodo->getIzquierda());
+    int alturaDer = calcularAltura(nodo->getDerecha());
+    
+    return 1 + (alturaIzq > alturaDer ? alturaIzq : alturaDer);
+}
+
+void Menu::dibujarArbol(Nodo<int>* nodo, int espacio, int altura) {
+    if(nodo == nullptr) {
+        return;
+    }
+    
+    espacio += altura;
+    
+    dibujarArbol(nodo->getDerecha(), espacio, altura);
+    
+    std::cout << std::endl;
+    for(int i = altura; i < espacio; i++) {
+        std::cout << " ";
+    }
+    std::cout << nodo->getDato();
+    
+    dibujarArbol(nodo->getIzquierda(), espacio, altura);
+}
+
+void Menu::mostrarArbol() {
+    limpiarPantalla();
+    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << "|              VISUALIZAR ÁRBOL             |" << std::endl;
+    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << std::endl;
+    
+    if(arbol.getRaiz() == nullptr) {
+        std::cout << "✗ El árbol está vacío" << std::endl;
+    } else {
+        int altura = calcularAltura(arbol.getRaiz());
+        std::cout << "Altura del árbol: " << altura << std::endl;
+        std::cout << std::endl;
+        std::cout << "Representación visual del árbol:" << std::endl;
+        std::cout << std::endl;
+        
+        dibujarArbol(arbol.getRaiz(), 0, 4);
+        
+        std::cout << std::endl << std::endl;
+        std::cout << "Estadísticas del árbol:" << std::endl;
+        std::cout << "- Altura: " << altura << std::endl;
+    }
+    
+    pausar();
 }

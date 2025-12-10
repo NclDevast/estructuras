@@ -18,6 +18,9 @@ private:
     void buscarDato();
     void mostrarRecorridos();
     void mostrarRecorridoMenu();
+    void mostrarArbol();
+    void dibujarArbol(Nodo<int>* nodo, int espacio, int altura);
+    int calcularAltura(Nodo<int>* nodo);
     void pausar();
     
 public:
