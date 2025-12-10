@@ -1,14 +1,14 @@
-#ifndef MENU_HPP
-#define MENU_HPP
+#ifndef MENUAVL_HPP
+#define MENUAVL_HPP
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
 #include "MenuArbol.hpp"
-#include "ABB/ABB.hpp"
+#include "AVL/AVL.HPP"
 
-class Menu : public MenuArbol {
+class MenuAVL : public MenuArbol {
 private:
-    ABB<int> arbol;
+    AVL<int> arbol;
     
     // Funciones auxiliares
     void mostrarMenu();
@@ -24,7 +24,7 @@ private:
     void pausar();
     
 public:
-    Menu();
+    MenuAVL();
     void iniciar() override;
 };
 
